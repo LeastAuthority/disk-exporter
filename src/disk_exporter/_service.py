@@ -96,7 +96,7 @@ class _DiskStatsCollector(object):
 def collect_host_disk_stats(host_mount_namespace, collector):
     # Pop over into the host mount namespace.  Good thing we're not
     # multithreaded or this could really screw something up.
-    with Namespace(host_mount_namespace.path, "mnt"):
+    with Namespace(host_mount_namespace, "mnt"):
         collector.collect()
 
 
